@@ -1,22 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { initialState } from "./initialState";
 import { Todo } from "../types";
 
-const initialState: Todo[] = [];
-
-const Reducer = createSlice({
+const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodos: (state, action: PayloadAction<Todo>) => {
-      return [...state, action.payload];
+    setSearchTerm: (state, action: PayloadAction<string>) => {
+      state.searchTerm = action.payload;
     },
-   
+    setSelectedCategory: (state, action: PayloadAction<string>) => {
+      state.selectedCategory = action.payload;
+    },
+    addTodos: (state, action: PayloadAction<Todo>) => {
+      state.todos.push(action.payload);
+    },
   },
 });
 
-export const {
-  addTodos,
-} = Reducer.actions;
-export const reducer = Reducer.reducer;
-
-export default Reducer.reducer;
+export const { setSearchTerm, setSelectedCategory, addTodos } = todoSlice.actions;
+export default todoSlice.reducer;

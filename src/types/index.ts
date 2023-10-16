@@ -7,8 +7,13 @@ export interface Todo {
   }
 
 export type RootState = {
-    todos: Todo[]; 
+    todos: {
+      searchTerm: string;
+      selectedCategory: string;
+      todos: Todo[];
+    };
   };
+  
   
   
   

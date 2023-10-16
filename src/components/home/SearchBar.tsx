@@ -1,36 +1,41 @@
 import React, { useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../types";
+import { setSearchTerm, setSelectedCategory } from "../../redux/reducer";
 
 const SearchBar: React.FC = () => {
-  // Define an array of categories
-  const categories: string[] = ["All categories", "Category 1", "Category 2", "Category 3"];
+  const dispatch = useDispatch();
+  const { selectedCategory, todos } = useSelector((state: RootState) => state.todos);
+  const [searchFor, setSearchFor] = useState(""); 
 
-  // State to manage the selected category
-  const [selectedCategory, setSelectedCategory] = useState("All categories");
+  // Extract unique categories from the todo items
+  const categories = Array.from(new Set(todos.map((todo) => todo.category)));
+
+  // Add "All categories" as the first category option
+  categories.unshift("All categories");
 
   // Handler to update the selected category
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(e.target.value);
+    dispatch(setSelectedCategory(e.target.value));
+  };
+
+  const handleSearch = () => {
+    dispatch(setSearchTerm(searchFor));
   };
 
   return (
     <div className="flex justify-center items-center px-20">
       <div className="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
         <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 opacity-30"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-          <input className="bg-gray-100 outline-none" type="text" placeholder="Article name or keyword..." />
+          <AiOutlineSearch className="w-6 h-6 opacity-30" />
+          <input
+            className="bg-gray-100 outline-none"
+            type="text"
+            placeholder="Article name or keyword..."
+            value={searchFor} 
+            onChange={(e) => setSearchFor(e.target.value)}
+          />
         </div>
         <div className="flex py-3 rounded-lg text-gray-500 font-semibold cursor-pointer">
           <select value={selectedCategory} onChange={handleCategoryChange} className="border-none outline-none px-3">
@@ -41,7 +46,10 @@ const SearchBar: React.FC = () => {
             ))}
           </select>
         </div>
-        <div className="bg-indigo-900 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-300 cursor-pointer">
+        <div
+          className="bg-indigo-900 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-300 cursor-pointer"
+          onClick={handleSearch}
+        >
           <span>Search</span>
         </div>
       </div>
