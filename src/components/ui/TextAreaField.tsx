@@ -1,12 +1,5 @@
 import React, { ChangeEvent } from "react";
-
-interface TextAreaFieldProps {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  id: string;
-  rows?: number;
-}
+import { TextAreaFieldProps } from "../../types";
 
 const TextAreaField: React.FC<TextAreaFieldProps> = ({
   label,

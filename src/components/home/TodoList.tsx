@@ -12,7 +12,7 @@ const TodoList = () => {
   const filteredTodos = filterTodos(todos, searchTerm, selectedCategory);
 
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       {filteredTodos.map((item, index) => (
         <TodoItem key={index} item={item} />
       ))}
@@ -44,17 +44,17 @@ const TodoItem = ({ item }: { item: Todo }) => {
         transition: { duration: 0.5 },
       }}
       key={item.id}
-      className="shadow-lg bg-white rounded-lg p-5 flex flex-col gap-3"
+      className="w-full shadow-lg bg-white rounded-lg p-5 flex flex-col gap-3"
     >
       <div className="w-full flex justify-between items-center">
-        <p className="text-gray-900 font-bold text-xl">{item.title}</p>
+        <p className="text-gray-900 font-bold text-lg sm:text-xl">{item.title}</p>
        
         {
           isCopied? 
           <div className="text-indigo-600">Copied!</div>
           : 
           <FaCopy
-            className="text-2xl cursor-pointer text-indigo-900"
+            className="text-xl sm:text-2xl cursor-pointer text-indigo-900"
             onClick={handleCopy}
           /> 
         }

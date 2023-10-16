@@ -63,7 +63,7 @@ const AddTodos = () => {
   const categories: string[] = ["Work", "Personal", "Study", "Home", "Others"];
 
   return (
-    <div className="w-full flex justify-end">
+    <div className="w-full flex justify-center sm:justify-end">
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -76,9 +76,9 @@ const AddTodos = () => {
         {modalOpen && (
           <Modal
             handleClose={closeModal}
-            className="m-auto w-[90%] sm:w-[70%] md:w-[50%] h-[50%] bg-white"
+            className="m-auto w-[90%] sm:w-[70%] md:w-[50%] h-[70%] md:h-[60%] bg-white"
           >
-            <div className="w-full h-full flex flex-col p-[3rem] justify-between">
+            <div className="w-full h-full flex flex-col p-[1rem] sm:p-[2rem] md:p-[3rem] justify-between">
               <ModalContent todo={todo} setTodo={setTodo} categories={categories} />
               <div className="w-full flex justify-end gap-4">
                 <button

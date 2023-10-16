@@ -1,12 +1,5 @@
 import React, { ChangeEvent } from "react";
-
-interface InputFieldProps {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  id: string;
-  type?: "text" | "password" | "number"; 
-}
+import { InputFieldProps } from "../../types";
 
 const InputField: React.FC<InputFieldProps> = ({
   label,

@@ -25,20 +25,20 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center px-20">
-      <div className="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
-        <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">
+    <div className="w-full sm:w-auto flex justify-center items-center">
+      <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center p-3 sm:p-4 md:p-6 space-x-0 sm:space-x-4 md:space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+        <div className="w-full flex bg-gray-100 p-4 rounded-lg">
           <AiOutlineSearch className="w-6 h-6 opacity-30" />
           <input
             className="bg-gray-100 outline-none"
             type="text"
-            placeholder="Article name or keyword..."
+            placeholder="Search title..."
             value={searchFor} 
             onChange={(e) => setSearchFor(e.target.value)}
           />
         </div>
-        <div className="flex py-3 rounded-lg text-gray-500 font-semibold cursor-pointer">
-          <select value={selectedCategory} onChange={handleCategoryChange} className="border-none outline-none px-3">
+        <div className="w-full flex py-3 rounded-lg text-gray-500 font-semibold cursor-pointer">
+          <select value={selectedCategory} onChange={handleCategoryChange} className="w-full border-none outline-none px-1 sm:px-2 md:px-3">
             {categories.map((category, index) => (
               <option key={index} value={category} className="border-none focus:outline-none">
                 {category}
@@ -46,12 +46,12 @@ const SearchBar: React.FC = () => {
             ))}
           </select>
         </div>
-        <div
-          className="bg-indigo-900 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-300 cursor-pointer"
+        <button
+          className="bg-indigo-900 w-full text-center sm:w-auto mt-5 sm:mt-0 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-300 cursor-pointer"
           onClick={handleSearch}
         >
-          <span>Search</span>
-        </div>
+          Search
+        </button>
       </div>
     </div>
   );

@@ -1,12 +1,5 @@
 import React, { ChangeEvent } from "react";
-
-interface SelectFieldProps {
-    label: string;
-    value: string;
-    onChange: (value: string) => void;
-    id: string;
-    options: string[];
-}
+import { SelectFieldProps } from "../../types";
 
 const SelectField: React.FC<SelectFieldProps> = ({
     label,

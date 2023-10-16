@@ -12,7 +12,7 @@ const Heading: React.FC<HeadingProps> = ({ children }) => {
       animate={{ y: 0 }}
       transition={{ type: "spring", duration: 0.5 }}
       whileHover={{ scale: 1.1 }}
-      className="text-white text-center text-[2em] font-serif font-bold"
+      className="text-white text-center text-[1em] sm:text-[1.2em] md:text-[2em] font-serif font-bold"
     >
       {children}
     </motion.h1>
