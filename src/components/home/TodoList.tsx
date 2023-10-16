@@ -14,7 +14,7 @@ const TodoList = () => {
   return (
     <div className="grid grid-cols-3 gap-5">
       {filteredTodos.map((item, index) => (
-        <TodoItem key={item.id} item={item} />
+        <TodoItem key={index} item={item} />
       ))}
     </div>
   );

@@ -16,13 +16,7 @@ html {
 }
 
 body {
-  background: linear-gradient(
-    190deg,
-    rgb(134, 123, 205) 0%,
-    rgb(106, 90, 171) 100%
-  );
-  background-repeat: no-repeat;
+  background: url('./assets/background.svg') no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
-  color: #222;
 }
+
