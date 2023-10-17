@@ -76,7 +76,7 @@ const AddTodos = () => {
         {modalOpen && (
           <Modal
             handleClose={closeModal}
-            className="m-auto w-[90%] sm:w-[70%] md:w-[50%] h-[70%] md:h-[60%] bg-white"
+            className="m-auto w-[90%] sm:w-[70%] md:w-[50%] bg-white"
           >
             <div className="w-full h-full flex flex-col p-[1rem] sm:p-[2rem] md:p-[3rem] justify-between">
               <ModalContent todo={todo} setTodo={setTodo} categories={categories} />

@@ -11,7 +11,13 @@
   font-family: "RocknRoll One", sans-serif;
 }
 
+html {
+   min-height: 100vh;
+}
+
 body {
+  width: 100%;
+  height: 100%;
   background: url('./assets/background.svg') no-repeat center center fixed;
   background-size: cover;
 }
