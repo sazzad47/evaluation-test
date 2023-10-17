@@ -12,7 +12,7 @@ const TodoList = () => {
   const filteredTodos = filterTodos(todos, searchTerm, selectedCategory);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       {filteredTodos.map((item, index) => (
         <TodoItem key={index} item={item} />
       ))}
